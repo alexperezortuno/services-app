@@ -1,0 +1,54 @@
+#:import utils kivy.utils
+
+<HomeBox>:
+    spacing: 30
+    padding: [30,20,50,40]
+
+    canvas:
+        Color:
+            rgb: utils.get_color_from_hex('#4d5256')
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    GridLayout:
+        cols: 1
+        BoxLayout:
+            size_hint: self.parent.size_hint_x, 1
+            Label:
+                text: 'My SQL'
+                font_size: '20sp'
+            Switch:
+                id: mysql
+                active: False
+                on_active: root.service_action(self, self.active, 'mysql')
+
+        BoxLayout:
+            size_hint: 1, 1
+            Label:
+                text: 'PostgreSQL'
+                font_size: '20sp'
+            Switch:
+                id: postgresql
+                active: False
+                on_active: root.service_action(self, self.active, 'postgresql')
+
+        BoxLayout:
+            size_hint: 1, 1
+            Label:
+                text: 'SQL Server'
+                font_size: '20sp'
+            Switch:
+                id: mssql
+                active: False
+                on_active: root.service_action(self, self.active, 'mssql')
+
+        BoxLayout:
+            size_hint: 1, 1
+            Label:
+                text: 'NGINX'
+                font_size: '20sp'
+            Switch:
+                id: nginx
+                active: False
+                on_active: root.service_action(self, self.active, 'nginx')
