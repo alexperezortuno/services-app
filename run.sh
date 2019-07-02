@@ -1,16 +1,19 @@
 #!/bin/bash
 
-cd $PWD
-. "$PWD/env/bin/activate"
-export KIVY_VIDEO=ffpyplayer
-pip check
-PIP_CHECK=$?
-
-if [ "$PIP_CHECK" = 0 ]; then
-    echo "All packages installed"
+DEPLOY_ENV="env"
+if [ ! -d "$PWD/$DEPLOY_ENV" ] 
+then
+    echo "Error: Directory $PWD/$DEPLOY_ENV does not exists."
+    virtualenv -p python3 env
 else
-    pip install -r requiriments.txt
+    echo "Directory $PWD/$DEPLOY_ENV exists."
 fi
+
+cd $PWD
+. "$PWD/$DEPLOY_ENV/bin/activate"
+export KIVY_VIDEO=ffpyplayer
+
+pip install -r requirements.txt
 
 chmod +x main.py
 
