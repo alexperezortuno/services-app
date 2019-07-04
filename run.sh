@@ -1,16 +1,18 @@
 #!/bin/bash
 
 DEPLOY_ENV="env"
-if [ ! -d "$PWD/$DEPLOY_ENV" ] 
+DIR_LOCATION=`dirname $0`
+
+if [ ! -d "$DIR_LOCATION/$DEPLOY_ENV" ]
 then
-    echo "Error: Directory $PWD/$DEPLOY_ENV does not exists."
+    echo "Error: Directory $DIR_LOCATION/$DEPLOY_ENV does not exists."
     virtualenv -p python3 env
 else
-    echo "Directory $PWD/$DEPLOY_ENV exists."
+    echo "Directory $DIR_LOCATION/$DEPLOY_ENV exists."
 fi
 
-cd $PWD
-. "$PWD/$DEPLOY_ENV/bin/activate"
+cd $DIR_LOCATION
+. "$DIR_LOCATION/$DEPLOY_ENV/bin/activate"
 export KIVY_VIDEO=ffpyplayer
 
 pip install -r requirements.txt

@@ -13,6 +13,7 @@ services = [
     'postgresql',
     'nginx',
     'mssql',
+    'ssh',
 ]
 Window.size = (320, 380)
 
