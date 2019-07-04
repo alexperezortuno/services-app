@@ -16,6 +16,16 @@
         BoxLayout:
             size_hint: self.parent.size_hint_x, 1
             Label:
+                text: 'SSH'
+                font_size: '20sp'
+            Switch:
+                id: ssh
+                active: False
+                on_active: root.service_action(self, self.active, 'ssh')
+
+        BoxLayout:
+            size_hint: self.parent.size_hint_x, 1
+            Label:
                 text: 'My SQL'
                 font_size: '20sp'
             Switch:
