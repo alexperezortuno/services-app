@@ -3,6 +3,7 @@
 DEPLOY_ENV="env"
 DIR_LOCATION=`dirname $0`
 
+cd $DIR_LOCATION
 if [ ! -d "$DIR_LOCATION/$DEPLOY_ENV" ]
 then
     echo "Error: Directory $DIR_LOCATION/$DEPLOY_ENV does not exists."
@@ -11,7 +12,6 @@ else
     echo "Directory $DIR_LOCATION/$DEPLOY_ENV exists."
 fi
 
-cd $DIR_LOCATION
 . "$DIR_LOCATION/$DEPLOY_ENV/bin/activate"
 export KIVY_VIDEO=ffpyplayer
 
